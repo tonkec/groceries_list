@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'signup' => 'users#new'
+  root 'users#new'
 
   resources :groceries
   get 'about'   => 'static_pages#about'
 
-  root 'static_pages#home' 
 end
