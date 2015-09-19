@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 describe Grocery do
+  it "has valid factory" do
+    FactoryGirl.create(:grocery).should be_valid
+  end
   it "is valid with a title and description" do
     grocery = Grocery.new(
       title: "Milk",
