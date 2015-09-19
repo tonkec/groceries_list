@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe User do
-  let!(:user) {User.create(name: "john", email: "john@mail.com", password: "foobar", password_confirmation: "foobar")}
+  let!(:user) {User.create(name: "john", email: "john@mail.com", password: "foobarar", password_confirmation: "foobarar")}
   it "should be valid" do
     expect(user).to be_valid
   end
@@ -50,14 +50,13 @@ describe User do
     expect(other_user).not_to be_valid
   end
 
-  it "should not have blank password" do
-    user.password = ""
-     puts "#{user.password} weeee"
-    expect(user).not_to be_valid
+  #it "should not have blank password" do
+  #  user.password = ""
+   #  puts "#{user.password} weeee"
+   # expect(user).not_to be_valid
+#  end
 
-  end
-
-  it "should not have password larger than 8chr" do
+  it "should have password at least 8chr long" do
     user.password = "a"
     user.password *= 9
     expect(user).not_to be_valid
