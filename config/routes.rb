@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'users/new'
+  get 'signup' => 'users#new'
 
   resources :groceries
   get 'about'   => 'static_pages#about'
