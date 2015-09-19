@@ -1,0 +1,80 @@
+@mixin text-animation($text-color, $underline-color) {
+	display: block;
+	width: 100%;
+	padding: 10px;
+	position: relative;
+	z-index: 2;
+	text-decoration: none;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+
+	&:after {
+		content: "";
+		height: 2%;
+		left: 0;
+		bottom: 0;
+		width: 1px;
+		position: absolute;
+		-webkit-transition: all 0.5s ease;
+		-moz-transition: all 0.5s ease;
+		-ms-transition: all 0.5s ease;
+		-o-transition: all 0.5s ease;
+		transition: all 0.5s ease;
+		right: 0;
+		margin: 0 auto;
+	}
+
+	&:hover {
+		color: $text-color;
+		-webkit-transition: all .8s ease;
+		-moz-transition: all .8s ease;
+		-ms-transition: all .8s ease;
+		-o-transition: all .8s ease;
+		transition: all .8s ease;
+		cursor: pointer;
+	}
+
+	&:hover:after {
+		width: 50%;
+		background-color: $underline-color;
+	}
+}
+
+@mixin center ($xy:xy) {
+	position: relative;
+	text-align: center; 
+	@if $xy == xy {
+		top: 50%;
+		left: 50%;
+		right: auto;
+		bottom: auto;
+		@include transform(translateX(-50%) translateY(-50%));
+	}
+
+	@else if $xy == x {
+		left: 50%;
+		right: auto;
+		@include transform(translateX(-50%));
+	} 
+
+	@else if $xy == y {
+		top: 50%;
+		bottom: auto;
+		@include transform(translateY(-50%));
+	} 
+}
+
+@mixin mediaQueries($window) {
+	@if $window == S {
+		@media only screen and (max-width: $S) {@content;}
+	}
+
+	@else if $window == M {
+		@media only screen and (max-width: $M) {@content;}
+	}
+
+	@else if $window == L {
+		@media only screen and (min-width: $M) {@content;}
+	}
+}

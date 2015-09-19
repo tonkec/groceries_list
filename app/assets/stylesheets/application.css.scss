@@ -10,8 +10,22 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
+
  *= require_self
  */
+@import "reset";
+@import "bourbon";
+@import "materialize";
+@import "partials/mixins";
+@import "partials/fonts";
+@import "partials/variables";
+@import "groceries";
+@import "scaffolds";
+@import "static_pages";
+@import "users";
 
- @import "materialize";
+ html,
+ body {
+ 	@include size(100%);
+ 	font-family: "Source Sans Pro", sans-serif;
+ }
