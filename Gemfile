@@ -39,6 +39,7 @@ group :development, :test do
   gem 'byebug'
   gem 'faker', '~> 1.4.3'
   gem 'rspec-rails', '~> 3.3.3'
+  gem 'factory_girl_rails'
 end
 
 group :development do
