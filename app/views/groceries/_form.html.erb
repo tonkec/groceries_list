@@ -1,29 +1,28 @@
-<%= form_for(@grocery) do |f| %>
+<div class="row">
+  <%= form_for @grocery, :html => {:class => 'col s10 offset-s1'} do |f| %>
   <% if @grocery.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@grocery.errors.count, "error") %> prohibited this grocery from being saved:</h2>
+  <div id="error_explanation">
+    <h2><%= pluralize(@grocery.errors.count, "error") %> prohibited this grocery from being saved:</h2>
 
-      <ul>
+    <ul>
       <% @grocery.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <li><%= message %></li>
       <% end %>
-      </ul>
-    </div>
+    </ul>
+  </div>
   <% end %>
+  <div class="input-field col s12">
+   <%= f.label :title %><br>
+   <%= f.text_field :title, class: "materialize-textarea" %>
+ </div>
+ <div class="input-field col s12">
+   <%= f.label :description %><br>
+   <%= f.text_area :description, class: "materialize-textarea" %>
+ </div>
+ <div class="actions">
+  <%= f.submit 'Submit', :class => 'btn waves-effect waves-light' %>
+</div>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :date %><br>
-    <%= f.datetime_select :date %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+</div>
 <% end %>

@@ -1,12 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Groceries</h1>
+<h1>Your Groceries</h1>
 
 <table>
   <thead>
     <tr>
       <th>Title</th>
-      <th>Date</th>
       <th>Description</th>
       <th colspan="3"></th>
     </tr>
@@ -16,7 +15,6 @@
     <% @groceries.each do |grocery| %>
       <tr>
         <td><%= grocery.title %></td>
-        <td><%= grocery.date %></td>
         <td><%= grocery.description %></td>
         <td><%= link_to 'Show', grocery %></td>
         <td><%= link_to 'Edit', edit_grocery_path(grocery) %></td>
