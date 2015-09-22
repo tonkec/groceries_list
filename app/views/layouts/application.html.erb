@@ -12,14 +12,16 @@
 <body>
 
 
-  <% if current_page?(root_path) %>
+  <% if current_page?(root_path)%>
     <%= render :template => "users/new"%>
+  <% elsif current_page?(login_path) %>
+    <%= render :template => "sessions/new"%>
   <% else %>
     <%= render 'layouts/header' %>
     <%= yield %>
     <%= render 'layouts/footer' %>
   <% end %>
-
+  <%= debug(params) if Rails.env.development? %>
 
 <script>
 	  $(".button-collapse").sideNav();
