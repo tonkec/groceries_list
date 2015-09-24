@@ -91,3 +91,19 @@ textarea.materialize-textarea:focus:not([readonly])+label {
 	background-color: #3498DB !important; 
 	margin-left: 7px;
 }
+
+.checkbox {
+	background: red;
+	position: static !important; 
+}
+
+[type="checkbox"]:not(:checked) {
+	position: static !important;
+	visibility: visible;
+	left: 0 !important; 
+}
+
+input#session_remember_me {
+    position: static;
+    visibility: visible;
+}

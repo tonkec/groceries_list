@@ -23,9 +23,41 @@
 @import "scaffolds";
 @import "static_pages";
 @import "users";
+@import "sessions";
 
  html,
  body {
  	@include size(100%);
  	font-family: "Source Sans Pro", sans-serif;
+ }
+
+ .main-row {
+	@include size(100%);
+	margin: 0;
+	@include display(flex);
+	@include justify-content(center);
+	@include align-items(center);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	background-image: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5) ), url("/market1.jpg");
+
+ }
+
+ .button-collapse {
+ 	display: block !important;
+ }
+
+ .navbar {
+ 	background: transparent;
+ 	box-shadow: none;
+ 	position: absolute;
+ }
+
+ #sidenav-overlay {
+    background-color: rgba(0, 0, 0, 0.2);
+ }
+
+ .button-collapse {
+ 	margin-left: 10px;
  }

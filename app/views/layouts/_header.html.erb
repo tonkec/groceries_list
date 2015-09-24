@@ -1,19 +1,13 @@
- <nav class="navbar">
+<nav class="navbar">
   <div class="nav-wrapper">
-    <%= link_to ("<i class='fa fa-home'></i>").html_safe, root_path %>
     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-    <ul class="right hide-on-med-and-down">
-      <% if logged_in? %>
-        <li><%= link_to "Log out", logout_path, method: :delete %></li>
-      <% else %>
-        <li><%= link_to "Log in", login_path %></li>
-      <% end %>
-      <li><%= link_to "Home",   root_path %></li>
-      <li><%= link_to "About",   about_path %></li>
-    </ul>
     <ul class="side-nav" id="mobile-demo">
-     <li><%= link_to "Home",   root_path %></li>
-     <li><%= link_to "Sign Up",   "#" %></li>
-     <li><%= link_to "About",   "#" %></li>    </ul>
-   </div>
- </nav>
+      <li><%= link_to "Home", @user %></li>
+      <% if logged_in? %>
+      <li><%= link_to "Log out", logout_path, method: :delete %></li>
+      <% else %>
+      <li><%= link_to "Log in", login_path %></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

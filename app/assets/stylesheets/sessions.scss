@@ -1,3 +1,57 @@
 // Place all the styles related to the Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.sessions-row {
+	@include size(100%);
+	margin: 0;
+	@include display(flex);
+	@include justify-content(center);
+	@include align-items(center);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	background-image: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5) ), url("/basket.jpg");
+}
+
+.login-heading {
+	font: {
+		size: em(80);
+		weight: 600;
+	}
+
+	color: #fff;
+	text-align: center; 
+}
+
+.rememberme-span {
+	color: #fff;
+	font: {
+		size: em(20);
+		weight: 300;
+	}
+}
+
+.remember-input-f {
+	margin: 10px 0; 
+}
+
+.btn-login {
+	margin-bottom: 10px;
+}
+
+.login-paragraph {
+	font: {
+		size: em(18);
+		weight: 400;
+	}
+
+	color: #fff;
+	margin-left: 5px; 
+}
+
+.login-span {
+	&:hover {
+		cursor: pointer;
+		text-decoration: underline;
+	}
+}
