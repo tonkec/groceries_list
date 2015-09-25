@@ -11,6 +11,10 @@
   <%= @user.email %>
 </p>
 
+<p>
+  <strong style="color: #fff">groceries:</strong>
+  <%= @user.groceries %>
+</p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
