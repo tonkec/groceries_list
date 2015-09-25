@@ -13,7 +13,10 @@
 
 <p>
   <strong style="color: #fff">groceries:</strong>
-  <%= @user.groceries %>
+  <% @groceries.each do |g|  %>
+  <%= g.title %>
+  <%= g.description %>
+  <% end %> 
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
