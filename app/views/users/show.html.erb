@@ -1,23 +1,22 @@
 <% provide(:title, "Show") %>
-<p id="notice"><%= notice %></p>
-<p>Welcome!</p>
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<div class="row users-row">
+  <div class="col s8 offset-s2">
+    <p id="notice"><%= notice %></p>
+    <h1 class="create-grocery">Create your groceries!</h1>
+  </div>
+</div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong style="color: #fff">groceries:</strong>
-  <% @groceries.each do |g|  %>
-  <%= g.title %>
-  <%= g.description %>
-  <% end %> 
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<div class="row groceries-list">
+  <div class="col s8 offset-s2">
+    <h4 class="current-groceries">Your current groceries:</h4>
+     <div class="col-md-8">
+     <% if @user.groceries.any? %>
+      <ol class="groceries-list">
+        <%= render @groceries %>
+      </ol>
+      <%= will_paginate @groceries %>
+    <% end %>
+  </div> 
+    
+  </div>
+</div>
