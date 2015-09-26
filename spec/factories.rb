@@ -8,8 +8,9 @@ FactoryGirl.define do
     password_confirmation "password"
   end
 
-factory :grocery do
-  title  { Faker::Name.title }
-  description { Faker::Lorem.words(20) }
-end
+  factory :grocery do
+    title "Lorem ipsum"
+    description "Lorem ipsum dolor amit"
+    user 
+  end
 end
