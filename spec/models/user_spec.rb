@@ -11,6 +11,8 @@ describe User do
   it {should respond_to(:password_confirmation)}
   it {should respond_to(:password)}
   it {should respond_to(:authenticate)}
+  it {should respond_to(:remember_token) }
+  it {should respond_to(:groceries) }
 
   it {should be_valid}
 
@@ -87,6 +89,28 @@ describe User do
 
     describe "with invalid psswd" do
       it {should_not eq found_user.authenticate("wrong password")}
+    end
+  end
+
+  describe "groceries associations" do
+    before {@user.save}
+    let!(:older_grocery) do
+      FactoryGirl.create(:grocery, user: subject, created_at: 1.day.ago)
+    end
+    let!(:newer_grocery) do
+      FactoryGirl.create(:grocery, user: subject, created_at: 1.hour.ago)
+    end
+    it "should have the right groceries in the right order" do
+      expect(@user.groceries.to_a).to eq [newer_grocery, older_grocery]
+    end
+
+    it "destroy associated groceries" do
+      groceries = @user.groceries.to_a
+      @user.destroy
+      expect(groceries).not_to be_empty
+      groceries.each do |g|
+        expect(Grocery.where(id: g.id)).to be_empty
+      end
     end
   end
 end
