@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @groceries = @user.groceries.paginate(page: params[:page])
+    @groceries = @user.groceries.paginate(page: params[:page], :per_page => 7)
   end
 
   def create 
