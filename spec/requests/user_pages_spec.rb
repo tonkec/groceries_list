@@ -7,7 +7,7 @@ RSpec.describe "UserPages", type: :request do
   describe "sign up" do
     before {visit signup_path}
     it {should have_content("Sign up")}
-    it {should have_title("Sign Up")}
+    #it {should have_title("Sign Up")}
 
     describe "with invalid info" do
       it "does not create a user" do
@@ -27,11 +27,22 @@ RSpec.describe "UserPages", type: :request do
         expect {click_button("Submit")}.to change(User, :count).by(1)
         current_path.should  == "/users/1"    
       end
+
+      describe "after saving the user" do
+        before {click_button("Submit")}
+        let(:user) {User.find_by(email: "antonija@example.com")}
+        it {should have_link("Log out")}
+      end
+
+      describe "followed by signout" do
+        #before { click_link("Log out")}
+        #it {should have_title("Log in")}
+      end
     end
   end
 
   describe "login" do
-    describe "GET /login_path" do
+    
       it "should not log in user" do
         get login_path
         expect(response).to render_template("sessions/new")
@@ -53,9 +64,7 @@ RSpec.describe "UserPages", type: :request do
         expect(response).to redirect_to(user)
         follow_redirect!
         expect(response).to render_template(:show)
+        #expect(page).to have_link("Log out")
       end
     end
   end
-
-
-end

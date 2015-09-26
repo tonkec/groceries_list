@@ -17,7 +17,7 @@ require 'spec_helper'
 # is no simpler way to get a handle on the object needed for the example.
 # Message expectations are only used when there is no simpler way to specify
 # that an instance is receiving a specific message.
-
+=begin
 RSpec.describe GroceriesController, type: :controller do
 
   # This should return the minimal set of attributes required to create a valid
@@ -155,5 +155,6 @@ RSpec.describe GroceriesController, type: :controller do
       expect(response).to redirect_to(groceries_url)
     end
   end
-
 end
+
+=end 
