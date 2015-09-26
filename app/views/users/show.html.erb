@@ -6,17 +6,25 @@
   </div>
 </div>
 
+<div class="row">
+  <div class="col s8 offset-s2">
+    <%= link_to new_grocery_path, :class => "btn-floating btn-large waves-effect waves-light red" do %>
+  <i class="mdi-content-add"></i>
+<% end %>
+  </div>
+</div>
+
+<% if @user.groceries.any? %>
 <div class="row groceries-list">
   <div class="col s8 offset-s2">
     <h4 class="current-groceries">Your current groceries:</h4>
      <div class="col-md-8">
-     <% if @user.groceries.any? %>
-      <ol class="groceries-list">
+      <ul class="collection with-header">
         <%= render @groceries %>
-      </ol>
+      </ul>
       <%= will_paginate @groceries %>
     <% end %>
   </div> 
     
   </div>
-</div>
+</div>  
