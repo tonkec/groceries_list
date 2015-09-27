@@ -1,7 +1,8 @@
 <% provide(:title, "Edit") %>
-<h1>Editing Grocery</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @grocery %> |
-<%= link_to 'Back', groceries_path %>
+<div class="row grocery-row">
+  <h1 class="grocery-edit">Edit Grocery</h1>
+  <div class="col s8 offset-s2">
+    
+    <%= render 'form' %>
+  </div>
+</div>
