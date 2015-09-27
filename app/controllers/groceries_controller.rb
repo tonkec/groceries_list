@@ -26,29 +26,20 @@ class GroceriesController < ApplicationController
   # POST /groceries.json
   def create
     @grocery = Grocery.new(grocery_params)
-
-    respond_to do |format|
       if @grocery.save
-        format.html { redirect_to @grocery, notice: 'Grocery was successfully created.' }
-        format.json { render :show, status: :created, location: @grocery }
+        redirect_to root_url
       else
-        format.html { render :new }
-        format.json { render json: @grocery.errors, status: :unprocessable_entity }
+        render "new"
       end
-    end
-  end
+   end
 
   # PATCH/PUT /groceries/1
   # PATCH/PUT /groceries/1.json
   def update
-    respond_to do |format|
-      if @grocery.update(grocery_params)
-        format.html { redirect_to @grocery, notice: 'Grocery was successfully updated.' }
-        format.json { render :show, status: :ok, location: @grocery }
-      else
-        format.html { render :edit }
-        format.json { render json: @grocery.errors, status: :unprocessable_entity }
-      end
+    if @grocery.update(grocery_params)
+      redirect_to root_url
+    else
+      render "edit"
     end
   end
 
@@ -57,7 +48,7 @@ class GroceriesController < ApplicationController
   def destroy
     @grocery.destroy
     respond_to do |format|
-      format.html { redirect_to groceries_url, notice: 'Grocery was successfully destroyed.' }
+      format.html { redirect_to root_url, notice: 'Grocery was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
