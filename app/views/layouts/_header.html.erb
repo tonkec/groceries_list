@@ -2,9 +2,9 @@
   <div class="nav-wrapper">
     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
     <ul class="side-nav" id="mobile-demo">
-      <li><%= link_to "Home", @user %></li>
+     
       <% if logged_in? %>
-      <li><%= link_to "Log out", logout_path, method: :delete %></li>
+      <li><%= link_to "Log out", logout_path, id: "logout", method: :delete %></li>
       <% else %>
       <li><%= link_to "Log in", login_path %></li>
       <% end %>

@@ -2,7 +2,8 @@
 <div class="row users-row">
   <div class="col s8 offset-s2">
     <p id="notice"><%= notice %></p>
-    <h1 class="create-grocery">Create your groceries!</h1>
+    <p id="noticedf" style="color: #fff"><%= params %>asfg</p>
+    <h1 class="create-grocery">Your current groceries</h1>
   </div>
 </div>
 
@@ -17,14 +18,15 @@
 <% if @user.groceries.any? %>
 <div class="row groceries-list">
   <div class="col s8 offset-s2">
-    <h4 class="current-groceries">Your current groceries:</h4>
      <div class="col-md-8">
       <ul class="collection with-header">
         <%= render @groceries %>
       </ul>
       <%= will_paginate @groceries %>
-    <% end %>
+   
+    <% else %>
+    <h1 style="color: #fff;">You dont have groceries yet!</h1>
   </div> 
-    
+     <% end %>
   </div>
 </div>  
