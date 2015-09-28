@@ -1,26 +1,35 @@
 <div class="row">
   <%= form_for @grocery, :html => {:class => 'col s10 offset-s1'} do |f| %>
   <% if @grocery.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@grocery.errors.count, "error") %> prohibited this grocery from being saved:</h2>
-
-    <ul>
-      <% @grocery.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-    </ul>
+  <div class="col s8 offset-s2 error_explanation">
+    <h2>Form has <%= pluralize(@grocery.errors.count, "error") %> !</h2>
+      <ul class="error-list">
+        <% @grocery.errors.full_messages.each do |message| %>
+        <li class="error-message"><%= message %></li>
+        <% end %>
+      </ul>
   </div>
   <% end %>
   <div class="input-field col s12">
    <%= f.label :title %><br>
-   <%= f.text_field :title, class: "materialize-textarea" %>
+   <%= f.text_field :title, class: "materialize-textarea", :placeholder => "#{@grocery.title}", :value => nil %>
  </div>
  <div class="input-field col s12">
    <%= f.label :description %><br>
-   <%= f.text_area :description, class: "materialize-textarea" %>
+   <%= f.text_area :description, class: "materialize-textarea", :placeholder => "#{@grocery.description}", :value => nil  %>
  </div>
- <div class="actions">
-  <%= f.submit 'Submit', :class => 'btn waves-effect waves-light btn-blue btn-grocery' %>
+ <div class="input-field col s12">
+   <%= f.label :amount %><br>
+   <%= f.number_field :amount, class: "materialize-textarea", :placeholder => "#{@grocery.amount}", :min => "0"  %>
+ </div>
+ <div class="input-field col s12">
+   <%= f.label :price %><br>
+   <%= f.number_field :price, class: "materialize-textarea", :placeholder => "#{@grocery.price}", :min => "0"  %>
+ </div>
+  <div class="col s12">
+     <div class="actions">
+    <%= f.submit 'Submit', :class => 'btn waves-effect waves-light btn-blue btn-grocery-submit' %>
+  </div>
 </div>
 
 

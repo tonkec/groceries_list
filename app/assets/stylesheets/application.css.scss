@@ -34,9 +34,6 @@
  .main-row {
 	@include size(100%);
 	margin: 0;
-	/*@include display(flex);
-	@include justify-content(center);
-	@include align-items(center);*/
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;

@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .waves-input-wrapper .waves-button-input {
 	background-color: transparent;
-    border: none;
+	border: none;
 }
 
 .create-grocery {
@@ -16,16 +16,28 @@
 	color: #fff;
 }
 
-.grocery-title {
+.grocery-heading {
+	margin: 0 auto;
+	color: #fff;
+	text-align: center; 
 	font: {
-		size: em(30);
-		weight: 300;
-	}
+		size: em(50);
+		weight: 500;
+	} 
 }
 
-.collection-item {
-	padding: 25px 20px !important;
-	margin-bottom: 5px !important;
+.grocery-title {
+	font: {
+		size: em(20);
+		weight: 300;
+	}
+
+ @media (min-width: 600px) {
+ 	font: {
+		size: em(28);
+		weight: 300;
+	}
+ }
 }
 
 .collection {
@@ -54,6 +66,98 @@
 	font-weight: 300;   
 }
 
-.btn-grocery {
+.btn-grocery-submit {
 	margin-top: 10px;
+}
+
+.btn-grocery-new {
+	background-color: #fff;
+	margin-left: 20px;  
+	
+	&:hover {
+		background-color: $lightblue; 
+	}
+
+	i {
+		color: $lightblue;
+		
+		&:hover {
+			color: #FFF; 
+		}
+	}
+}
+
+.collapsible-header {
+	background-color: $darkblue;
+	color: rgba(255, 255, 255, 0.71);
+	height: 80px;
+	line-height: 80px; 
+}
+
+.collapsible-header i {
+	line-height: 80px; 
+}
+
+.icon-edit,
+.icon-delete {
+	color: #fff;
+	font: {
+		size: em(25);
+	}
+
+	&:hover {
+		color: $lightblue;
+		@include transition(all .4s ease-in-out);
+	}
+}
+
+.icon-delete {
+	margin-left: 10px; 
+}
+
+.collapsible-body {
+	background-color: #304861;
+	color: rgba(255, 255, 255, 0.71);
+}
+
+.collapsible-row {
+	display: flex;
+	align-items: center;
+}
+
+.pagination {
+	a {
+		font-size: 18px; 
+		margin-left: 3px; 
+	}
+}
+
+.checkbox-paragraph {
+	display: inline; 
+}
+
+.previous_page {
+	color: #fff;
+	float: left;
+	
+	&:hover {
+		color :$lightblue;
+		@include transition(all .4s ease-in-out);
+	}
+}
+
+.next_page {
+	float: right;
+	color: #fff;
+	
+	&:hover {
+		color :$lightblue;
+		@include transition(all .4s ease-in-out);
+	}
+}
+
+.fa-arrow-left,
+.fa-arrow-right {
+	font-size: 3em !important; 
+	margin: 0 20px; 
 }

@@ -1,6 +1,10 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.users-main-row {
+	@include center;
+}
+
 .signup-row {
 	@include size(100%);
 	margin: 0;
@@ -57,22 +61,22 @@
 input[type]:focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]) {
 	
-	color: $darkblue !important;
+	color: $lightblue !important;
 
 	&:focus {
-		border-bottom: 1px solid $darkblue !important;
-		box-shadow: 0 1px 0 0 $darkblue !important;
+		border-bottom: 1px solid $lightblue !important;
+		box-shadow: 0 1px 0 0 $lightblue !important;
 		
 	}
 }
 
 input[type]:focus:not([readonly])::-webkit-input-placeholder {
-  color: $darkblue !important;
+  color: $lightblue !important;
 }
 
 input[type]:focus:not([readonly])+label,
 textarea.materialize-textarea:focus:not([readonly])+label {
-	color: $darkblue !important;
+	color: $lightblue !important;
 }
 
 .input-field label {
@@ -80,11 +84,11 @@ textarea.materialize-textarea:focus:not([readonly])+label {
 }
 
 .input-field label.active {
-	color: $darkblue;
+	color: $lightblue;
 }
 
 .input-field .prefix.active {
-	color: $darkblue !important;
+	color: $lightblue !important;
 }
 
 .btn-blue {
@@ -96,8 +100,7 @@ textarea.materialize-textarea:focus:not([readonly])+label {
 	text-align: left; 
 }
 
-.checkbox {
-	background: red;
+/*.checkbox {
 	position: static !important; 
 }
 
@@ -110,4 +113,4 @@ textarea.materialize-textarea:focus:not([readonly])+label {
 input#session_remember_me {
     position: static;
     visibility: visible;
-}
+}*/

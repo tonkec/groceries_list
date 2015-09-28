@@ -1,10 +1,37 @@
 <li class="collection-item" id="grocery-<%= grocery.id %>">
- <i class="material-icons dp48">description</i>
- <span class="grocery-title"><%= grocery.title %></span>
- <span class="right">
-  <%= link_to edit_grocery_path(grocery) do %>
-  <i class="mdi-content-create icon-edit"></i><% end%>
-  <%= link_to grocery, method: :delete, data: {confirm: "Are you sure?"} do %>
-  <i class="material-icons dp48">delete</i><%end %>
-</span>
+ <div class="collapsible-header">
+  <i class="material-icons dp48">description</i>
+  <span class="grocery-title"><%= grocery.title %></span>
+  <span class="grocery-title"><%= grocery.id %></span>
+   <p class="checkbox-paragraph">
+      <input type="checkbox" id="test5" />
+      <label for="test5">Red</label>
+    </p>
+</div>
+<div class="collapsible-body">
+<div class="row collapsible-row">
+    <div class="col s10">
+      <p class="grocery-description"><%= grocery.description %></p>
+    </div>
+    <div class="col s2 center-align">
+      <%= link_to edit_grocery_path(grocery) do %>
+      <i class="mdi-content-create icon-edit"></i><% end%>
+      <%= link_to grocery, method: :delete, data: {confirm: "Are you sure?"} do %>
+      <i class="material-icons dp48 icon-delete">delete</i><%end %>
+    </div>
+  </div>
+</div>
 </li>
+
+<script>
+   $(document).ready(function(){
+  $('.collapsible').collapsible({
+      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+    });
+
+  $(".next_page, .previous_page").empty();
+  $(".previous_page").append('<i class="fa fa-arrow-left"></i>');
+  $(".next_page").append('<i class="fa fa-arrow-right"></i>');
+});
+</script>
+
