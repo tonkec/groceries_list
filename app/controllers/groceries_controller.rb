@@ -2,12 +2,6 @@ class GroceriesController < ApplicationController
   before_action :set_grocery, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_user, only: [:show, :edit, :update, :destroy, :new]
 
-  # GET /groceries
-  # GET /groceries.json
-  def index
-    @groceries = Grocery.all
-  end
-
   # GET /groceries/1
   # GET /groceries/1.json
   def show
@@ -25,7 +19,7 @@ class GroceriesController < ApplicationController
   # POST /groceries
   # POST /groceries.json
   def create
-    @grocery = Grocery.new(grocery_params)
+    @grocery = current_user.groceries.build(grocery_params)
       if @grocery.save
         redirect_to root_url
       else
@@ -61,6 +55,6 @@ class GroceriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def grocery_params
-      params.require(:grocery).permit(:title, :date, :description)
+      params.require(:grocery).permit(:title, :date, :description, :amount, :price)
     end
 end
