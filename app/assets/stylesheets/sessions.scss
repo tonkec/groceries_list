@@ -37,6 +37,12 @@
 
 .btn-login {
 	margin-bottom: 10px;
+	
+	input {
+		&:focus {
+			
+		}
+	}
 }
 
 .login-paragraph {

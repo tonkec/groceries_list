@@ -1,27 +1,22 @@
-<% if current_user.groceries.any? %>
-<div class="row users-row">
-    <div class="col s12 l6 offset-l3">
+<div class="row users-main-row">
+  <div class="row users-row">
+    <div class="col s10 offset-s1 l8 offset-l2">
       <p id="notice"><%= notice %></p>
+       <% if current_user.groceries.any? %>
       <h1 class="grocery-heading">Your current groceries</h1>
     </div>
   </div>
+  <div class="row groceries-list">
+    <div class="col s10 offset-s1 l8 offset-l2">
+      <ul class="collapsible popout collapsible-accordion">
+        <%= render @groceries %>      
+      </ul>
 
-<div class="row">
-    <div class="col s12 l6 offset-l3">
-      <%= link_to new_grocery_path, :class => "btn-floating btn-large waves-effect waves-light btn-grocery-new" do %>
-      <i class="mdi-content-add"></i>
+      <%= will_paginate @groceries, :html => false %>
+      <% else %>
+      <h1 style="color: #fff;">You dont have groceries yet!</h1>
       <% end %>
     </div>
-  </div>
+  </div>  
+</div>
 
-<div class="row groceries-list">
-  <div class="col s12 l6 offset-l3">
-    <ul class="collapsible popout collapsible-accordion">
-      <%= render @groceries %>
-    </ul>
-    <%= will_paginate @groceries, :page_links => false, :html => false %>
-    <% else %>
-    <h1 class="groceries-heading">You dont have groceries yet!</h1> 
-    <% end %>
-  </div>
-</div>  

@@ -10,21 +10,24 @@
 
 </head>
 <body>
-  <div class="container flash-container">
-    <% flash.each do |message_type, message| %>
-    <div class="alert alert-<%= message_type %>"><%= message %></div>
-    <% end %>
-  </div>
-  <% if logged_in? %>
-   <%= render 'layouts/header' %>
-  <% end %>
-  <div class="row main-row">
-    <%= yield %>
-  </div>
 
-  <%= debug(params) if Rails.env.development? %>
-<script>
-	  $(".button-collapse").sideNav();
-</script>
+  <div class="row main-row">
+   <% if logged_in? %>
+   <%= render 'layouts/header' %>
+   <%= yield %>
+   <% else %>
+   <%= yield %>
+   <% end %>
+   <div class="footer">
+     <div class="col s6 offset-s3">
+     <span class="footer-heading">Made with <i class="fa fa-heart"></i> by <a href="https://twitter.com/tonkec_palonkec" target="_blank">@tonkec</a></span>
+     </div>
+   </div>
+ </div>
+
+
+ <script>
+   $(".button-collapse").sideNav();
+ </script>
 </body>
 </html>

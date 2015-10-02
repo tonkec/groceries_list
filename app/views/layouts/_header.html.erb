@@ -1,23 +1,37 @@
  <nav class="navbar">
   <div class="nav-wrapper">
     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-    <ul class="right hide-on-med-and-down">
-      <% if logged_in? %>
-      <li><%= link_to "Home",   root_path %></li>
-      <li><%= link_to "New", new_grocery_path%></li>
-      <li><%= link_to "Log out", logout_path, method: :delete %></li>
-      <% else %>
-      <li><%= link_to "Log in", login_path %></li>
-      <% end %>
+    <% if logged_in? %>
+    <ul class="left hide-on-med-and-down navbar-list">
+      <li>
+       <%= link_to root_path do %>
+        <i class="fa fa-home"></i>
+       <% end%>
+      </li> 
     </ul>
-    <ul class="side-nav" id="mobile-demo">
-     <% if logged_in? %>
-      <li><%= link_to "Home",   root_path %></li>
-      <li><%= link_to "New", new_grocery_path%></li>
-      <li><%= link_to "Log out", logout_path, method: :delete %></li>
-      <% else %>
+    <ul class="right hide-on-med-and-down navbar-list">
+      <li>
+        <%= link_to new_grocery_path do %>
+        <i class="fa fa-plus"></i>
+        <% end%>
+      </li>
+      <li>
+        <%= link_to logout_path, method: :delete  do%>
+        <i class="fa fa-sign-out"></i>
+        <% end%>
+      </li>
+    <% else %>
       <li><%= link_to "Log in", login_path %></li>
-      <% end %>
-   </ul>
- </div>
+    <% end %>
+  </ul>
+  <ul class="side-nav" id="mobile-demo">
+   <% if logged_in? %>
+   <li><%= link_to "Home",   root_path %></li>
+   <li><%= link_to "New", new_grocery_path%></li>
+   <li><%= link_to "Log out", logout_path, method: :delete %></li>
+   <% else %>
+   <li><%= link_to "Log in", login_path %></li>
+   <% end %>
+ </ul>
+</div>
 </nav>

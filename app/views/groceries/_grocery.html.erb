@@ -1,37 +1,59 @@
 <li class="collection-item" id="grocery-<%= grocery.id %>">
  <div class="collapsible-header">
-  <i class="material-icons dp48">description</i>
-  <span class="grocery-title"><%= grocery.title %></span>
-  <span class="grocery-title"><%= grocery.id %></span>
-   <p class="checkbox-paragraph">
-      <input type="checkbox" id="test5" />
-      <label for="test5">Red</label>
-    </p>
-</div>
+  <div class="row">
+    <div class="col s2"><i class="material-icons dp48">description</i></div>
+    <div class="col s8">
+      <p class="grocery-title">
+        <%= grocery.title %>
+      </p>
+    </div><!--col -->
+    <div class="col s1">
+      <input type="checkbox" class="checkbox">
+    </div><!--col -->
+    <div class="col s1">
+      <a class="dropdown-button" href="#!" data-activates="dropdown<%= grocery.id %>"><i class="fa fa-ellipsis-v fa-dropdown"></i></a>
+    </div><!--col -->
+  </div><!--row-->
+</div><!--header -->
 <div class="collapsible-body">
-<div class="row collapsible-row">
-    <div class="col s10">
-      <p class="grocery-description"><%= grocery.description %></p>
-    </div>
-    <div class="col s2 center-align">
-      <%= link_to edit_grocery_path(grocery) do %>
-      <i class="mdi-content-create icon-edit"></i><% end%>
-      <%= link_to grocery, method: :delete, data: {confirm: "Are you sure?"} do %>
-      <i class="material-icons dp48 icon-delete">delete</i><%end %>
-    </div>
-  </div>
-</div>
+  <div class="row">
+    <div class="col s12">
+      <p class="grocery-description">
+        <%= grocery.description %>
+      </p>
+    </div><!--col-->
+  </div><!--row-->
+</div><!--body-->
 </li>
 
+<ul id="dropdown<%= grocery.id %>" class="dropdown-content">
+  <li class="dropdown-item">
+   <%= link_to "Edit", edit_grocery_path(grocery) %>
+ </li>
+ <li class="dropdown-item">
+   <%= link_to "Delete", grocery, method: :delete, data: {confirm: "Are you sure?"}%>
+
+ </li>
+</ul>
 <script>
-   $(document).ready(function(){
+ $(document).ready(function(){
   $('.collapsible').collapsible({
       accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
     });
 
-  $(".next_page, .previous_page").empty();
-  $(".previous_page").append('<i class="fa fa-arrow-left"></i>');
-  $(".next_page").append('<i class="fa fa-arrow-right"></i>');
+  $(".checkbox").click(function(){
+    var el = $(this);
+  });
+
+  var dropdown = $(".dropdown-content");
+ 
+
+  $(".collapsible-header").click(function(){
+    if ($(dropdown).hasClass("active")) {
+      /*alert("acitve");*/
+      var collapsibleBody = $(this).siblings()
+      $(collapsibleBody).css("display", "none");
+    }
+  });
 });
 </script>
-

@@ -100,8 +100,9 @@ textarea.materialize-textarea:focus:not([readonly])+label {
 	text-align: left; 
 }
 
-/*.checkbox {
+.checkbox {
 	position: static !important; 
+	visibility: visible !important; 
 }
 
 [type="checkbox"]:not(:checked) {
@@ -113,4 +114,4 @@ textarea.materialize-textarea:focus:not([readonly])+label {
 input#session_remember_me {
     position: static;
     visibility: visible;
-}*/
+}

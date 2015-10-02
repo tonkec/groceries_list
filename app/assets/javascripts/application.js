@@ -15,3 +15,9 @@
 //= require materialize-sprockets
 //= require turbolinks
 //= require_tree .
+$(document).ready(function(){
+  $(".checkbox").click(function(){
+    var groceryTitle = $(this).siblings()[1];
+    $(groceryTitle).toggleClass("text-checked");
+  });
+});
