@@ -7,7 +7,6 @@ RSpec.describe "UserPages", type: :request do
   describe "sign up" do
     before {visit signup_path}
     it {should have_content("Sign up")}
-    #it {should have_title("Sign Up")}
 
     describe "with invalid info" do
       it "does not create a user" do
@@ -25,7 +24,7 @@ RSpec.describe "UserPages", type: :request do
 
       it "creates a user and redirects to user's page" do
         expect {click_button("Submit")}.to change(User, :count).by(1)
-        current_path.should  == "/users/1"    
+        current_path.should  == "/"    
       end
 
       describe "after saving the user" do
@@ -33,17 +32,12 @@ RSpec.describe "UserPages", type: :request do
         let(:user) {User.find_by(email: "antonija@example.com")}
         it {should have_link("Log out")}
       end
-
-      describe "followed by signout" do
-        #before { click_link("Log out")}
-        #it {should have_title("Log in")}
-      end
     end
   end
 
   describe "login" do
     
-      it "should not log in user" do
+      it "does not log in user" do
         get login_path
         expect(response).to render_template("sessions/new")
         expect(response).to have_http_status(200)
@@ -55,16 +49,15 @@ RSpec.describe "UserPages", type: :request do
         expect(flash[:danger]).not_to be_present
       end
 
-      it "should log in user" do
+      it "logs in user" do
         get login_path
         expect(response).to render_template("sessions/new")
         expect(response).to have_http_status(200)
         post login_path, :session => {:email => user.email,
                                 :password => user.password}
-        expect(response).to redirect_to(user)
+        expect(response).to redirect_to(root_url)
         follow_redirect!
-        expect(response).to render_template(:show)
-        #expect(page).to have_link("Log out")
+        expect(response).to render_template(:home)
       end
     end
   end
