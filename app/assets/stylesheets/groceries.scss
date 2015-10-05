@@ -136,11 +136,6 @@
 	border-top: 1px solid rgba(221, 221, 221, 0.55);
 	
 }
-
-.collapsible-header i {
-	line-height: 80px; 
-}
-
 .icon-edit,
 .icon-delete {
 	color: rgba(0, 0, 0, 0.5);
@@ -194,10 +189,6 @@
 	display: inline; 
 }
 
-.checkbox {
-	margin-left: 50px;
-}
-
 .previous_page {
 	color: #fff;
 	
@@ -234,6 +225,9 @@
 
 .fa-dropdown {
 	color: #fff;
+	line-height: 80px !important; 
+	width: auto !important;
+	float: none !important; 
 }
 
 .dropdown-item {
