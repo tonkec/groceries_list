@@ -27,6 +27,7 @@
 }
 
 .grocery-title {
+	display: block;
 	font: {
 		size: em(15);
 		weight: 500;
@@ -97,28 +98,40 @@
 
 .collapsible.popout {
 	margin: 0 auto;
+	
+	li {
+		-webkit-box-shadow: none; 
+		box-shadow: none; 
+	    width: 80%; 
+		
+		&.active {
+			-webkit-box-shadow: none; 
+			box-shadow: none; 	
+		    width: 80%;
+		    margin: 0 auto; 
+		}
+	}
 }
 
 .collapsible-header {
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: transparent; 
 	color: rgba(255, 255, 255, 0.71);
 	height: 80px;
 	line-height: 80px;
 	border: none;
 	margin-top: 5px;
-	
-	&.active {
-		background-color: #000; 
-	}
+	border-bottom: 1px solid rgba(255,255,255, 0.2);
+	width: 100%;
+	margin: 0 auto; 
 	
 	&:hover {
-		background-color: rgba(0, 0, 0, 1);
-		@include transition(all .9s ease-in-out);
-	}
+		background: rgba(255,255,255,.1);
+		@include transition(all .4s ease-in-out);
+	} 
 }
 
 .collapsible-body {
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: transparent;
 	color: rgba(255, 255, 255, 0.71);
 	border-top: 1px solid rgba(221, 221, 221, 0.55);
 	
@@ -175,17 +188,14 @@
 			font-size: 1.2rem;
 		}
 	}
-
-	a {
-		&:hover {
-			background-color: rgba(0,0,0,.5); 
-			@include transition(all .9s ease-in-out);
-		}
-	}
 }
 
 .checkbox-paragraph {
 	display: inline; 
+}
+
+.checkbox {
+	margin-left: 50px;
 }
 
 .previous_page {
@@ -224,4 +234,14 @@
 
 .fa-dropdown {
 	color: #fff;
+}
+
+.dropdown-item {
+	width: 100% !important; 
+}
+
+.collapsible-row {
+	@include display(flex);
+    @include justify-content(center);
+    @include align-items(center);
 }

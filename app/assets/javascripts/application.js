@@ -16,8 +16,9 @@
 //= require turbolinks
 //= require_tree .
 $(document).ready(function(){
-  $(".checkbox").click(function(){
-    var groceryTitle = $(this).siblings()[1];
-    $(groceryTitle).toggleClass("text-checked");
+    $(".checkbox").click(function(){
+    var currentTitle = $(this).parent().siblings()[0].children[0];
+    /* could not think of better way to access grocery-title class :/ */
+    $(currentTitle).toggleClass("text-checked");
   });
-});
+})
