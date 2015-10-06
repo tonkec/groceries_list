@@ -15,7 +15,7 @@ RSpec.describe "UserPages", type: :request do
     end
 
     describe "with valid info" do
-       before do
+      before do
         fill_in "Name",         with: "Antonija"
         fill_in "Email",        with: "antonija@example.com"
         fill_in "Password",     with: "12345678"
@@ -36,28 +36,31 @@ RSpec.describe "UserPages", type: :request do
   end
 
   describe "login" do
+    before {visit login_path}
+    it {should have_content("Log in")}
     
-      it "does not log in user" do
-        get login_path
-        expect(response).to render_template("sessions/new")
-        expect(response).to have_http_status(200)
-        post login_path, :session => {:email => "",
-                                :password => ""}
-        expect(response).to render_template("sessions/new")
-        expect(flash[:danger]).to be_present
-        get login_path
-        expect(flash[:danger]).not_to be_present
+    describe "with invalid info" do
+     before {click_button "Log in"}
+     it {should have_title("Log in")}
+     it {should have_selector("div.alert.alert-danger")}
+
+     describe "visiting another page" do
+      before {visit signup_path}
+      it {should_not have_selector("div.alert.alert-danger")}
+     end 
+   end
+
+    describe "with valid info" do
+      before do
+        fill_in "Email", with: user.email.upcase
+        fill_in "Password", with: user.password
+        click_button "Log in"
       end
 
-      it "logs in user" do
-        get login_path
-        expect(response).to render_template("sessions/new")
-        expect(response).to have_http_status(200)
-        post login_path, :session => {:email => user.email,
-                                :password => user.password}
-        expect(response).to redirect_to(root_url)
-        follow_redirect!
-        expect(response).to render_template(:home)
-      end
+      it {should have_title("Home")}
+      it {should have_link("Log out", href: logout_path)}
+      it {should_not have_link("Log in", href: login_path)}
+
     end
   end
+end
