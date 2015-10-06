@@ -38,7 +38,6 @@
 	background-position: center center;
 	background-size: cover;
 	background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7) ), url("/basket.jpg");
-
  }
 
  .navbar {
@@ -102,4 +101,34 @@
 
 .navbar-list {
 	margin: 0 20px;
+}
+
+.flash-paragraph {
+	text-align: center;
+	font: {
+		weight: 500;
+		size: em(25);
+	}  
+		
+	@media (min-width: 768px) {
+		font: {
+			size: em(30);
+		}
+	}
+}
+
+.alert-success {
+	.flash-paragraph {
+		color: $teal;  
+	}
+}
+.alert-danger {
+	.flash-paragraph {
+		color: $lightblue;
+	}	
+}
+
+.flash-col {
+	position: absolute;
+	top: 50px;  
 }

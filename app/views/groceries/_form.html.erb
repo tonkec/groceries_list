@@ -1,15 +1,6 @@
 <div class="row">
   <%= form_for @grocery, :html => {:class => 'col s10 offset-s1'} do |f| %>
-  <% if @grocery.errors.any? %>
-  <div class="col s8 offset-s2 error_explanation">
-    <h2>Form has <%= pluralize(@grocery.errors.count, "error") %> !</h2>
-      <ul class="error-list">
-        <% @grocery.errors.full_messages.each do |message| %>
-        <li class="error-message"><%= message %></li>
-        <% end %>
-      </ul>
-  </div>
-  <% end %>
+  <%= render "shared/error_messages", object: f.object %>
   <div class="input-field col s12">
    <%= f.label :title %><br>
    <%= f.text_field :title, class: "materialize-textarea", :placeholder => "#{@grocery.title}", :value => nil %>

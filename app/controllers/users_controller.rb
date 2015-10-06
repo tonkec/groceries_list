@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       redirect_to @user
-      flash.now[:success] = 'Welcome!'
+      flash.now[:success] = 'Welcome to groceries app!'
     else
       render 'new'
     end

@@ -10,14 +10,18 @@
 
 </head>
 <body>
-
   <div class="row main-row">
    <% if logged_in? %>
-   <%= render 'layouts/header' %>
-   <%= yield %>
-   <% else %>
-   <%= yield %>
+    <%= render 'layouts/header' %>
    <% end %>
+   <div class="col s6 offset-s3 flash-col">
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>">
+          <p class="flash-paragraph"><%= message %></p>
+        </div>
+      <% end %>
+  </div>
+   <%= yield %>
    <div class="footer">
      <div class="col s6 offset-s3">
      <span class="footer-heading">Made with <i class="fa fa-heart animated pulse"></i> by <a href="https://twitter.com/tonkec_palonkec" target="_blank">@tonkec</a></span>
