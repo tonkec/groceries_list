@@ -38,7 +38,7 @@
 .btn-login {
 	margin-bottom: 10px;
 	width: 100px;
-	 
+
 	input {
 		position: absolute !important;
 		width: 100% !important;
@@ -65,6 +65,16 @@
 	}
 }
 
-input[type]:focus:not([readonly]):focus {
-	color: #fff !important;
+
+.btn.waves-effect {
+	input[type]:focus:not([readonly]) {
+		color: #fff !important;
+	}
+	
+}
+
+
+input[type=text],
+input[type=password] {
+	color: $lightblue;
 }

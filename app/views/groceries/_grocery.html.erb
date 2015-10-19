@@ -10,7 +10,7 @@
        <input type="checkbox" class="checkbox">
      </div>
       <div class="col s2 right-align">
-        <a class="dropdown-button" href="#!" style="float:right;" data-activates="dropdown<%= grocery.id %>"><i class="fa fa-ellipsis-v fa-dropdown"></i></a>
+        <a class="dropdown-button" href="#!" data-activates="dropdown<%= grocery.id %>"><i class="fa fa-ellipsis-v fa-dropdown"></i></a>
       </div><!--col -->
     </div><!--row-->
   </div><!--header -->
@@ -23,12 +23,10 @@
       </div><!--col-->
       
       <div class="col s4">
-        <% if grocery.amount? %>
-        <span>Amount: <%= grocery.amount %>.</span>
-        <% elsif grocery.price? %>
-        <span>Price: <%= grocery.price %> $</span>
+        <p class="grocery-info">Amount: <%= grocery.amount %></p>
+        
+        <p class="grocery-info">Price: <%= grocery.price %>$</p>
       </div>
-        <% end %>
     </div><!--row-->
   </div><!--body-->
 </li>

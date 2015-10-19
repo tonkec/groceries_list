@@ -11,10 +11,9 @@
       <ul class="collapsible popout collapsible-accordion">
         <%= render @groceries %>      
       </ul>
-
       <%= will_paginate @groceries, :page_links => false, :html => false %>
       <% else %>
-      <h1 class="grocery-heading animated pulse">You dont have groceries yet!</h1>
+      <h1 class="grocery-heading animated pulse">You don't have groceries yet!</h1>
       <% end %>
     </div>
   </div>  

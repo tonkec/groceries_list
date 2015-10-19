@@ -102,13 +102,13 @@
 	li {
 		-webkit-box-shadow: none; 
 		box-shadow: none; 
-	    width: 80%; 
+		width: 80%; 
 		
 		&.active {
 			-webkit-box-shadow: none; 
 			box-shadow: none; 	
-		    width: 80%;
-		    margin: 0 auto; 
+			width: 80%;
+			margin: 0 auto; 
 		}
 	}
 }
@@ -135,6 +135,13 @@
 	color: rgba(255, 255, 255, 0.71);
 	border-top: 1px solid rgba(221, 221, 221, 0.55);
 	
+	p {
+		padding: 0;
+		margin: 10%;
+		font-weight: 500; 
+
+	}
+
 }
 .icon-edit,
 .icon-delete {
@@ -236,6 +243,27 @@
 
 .collapsible-row {
 	@include display(flex);
-    @include justify-content(center);
-    @include align-items(center);
+	@include justify-content(center);
+	@include align-items(center);
+}
+
+.dropdown-button {
+	float: right;
+}
+
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type=number] {
+	color: #fff !important;
+}
+
+.grocery-info {
+	padding: 0;
 }

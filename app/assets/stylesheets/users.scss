@@ -81,7 +81,8 @@ textarea.materialize-textarea:focus:not([readonly])+label {
 }
 
 .input-field label {
-	color: #fbfbfb;
+	color: $lightblue;
+
 }
 
 .input-field label.active {
@@ -91,6 +92,11 @@ textarea.materialize-textarea:focus:not([readonly])+label {
 .input-field .prefix.active {
 	color: $lightblue !important;
 }
+
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; } /* Firefox 18- */
+input:focus::-moz-placeholder { color:transparent; } /* Firefox 19+ */
+input:focus:-ms-input-placeholder { color:transparent; } /* oldIE ;) */
 
 .btn-blue {
 	background-color: #3498DB !important; 
